@@ -15,6 +15,11 @@ SignalsService serves to bring you a more comprehensive way of connecting withou
 ### **How does the service work?**
 The service works based on meta-tables that store the connections in ascending order, functions are available that allow manipulating this meta-table of connections.
 
-**See library documentation [here!](https://kuperstudio.github.io/SignalsService/)**
+---
 
-**See the discussion about the service in our [Devforum topic.](https://devforum.roblox.com/t/1548916)**
+SignalsService was developed by HottylewrSlip!
+
+* **Service documentation:** [API](https://kuperstudio.github.io/SignalsService/)
+* **Devforum Discussion Topic:** [Topic](https://devforum.roblox.com/t/1548916)
+* **Roblox Library:** [Library](https://www.roblox.com/library/7715453598/SignalsService)
+* **GitHub Repository:** [Repository](https://devforum.roblox.com/t/signalsservice-connect-with-us/1548916)
