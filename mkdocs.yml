@@ -1,0 +1,36 @@
+site_name: KuperStudio
+site_url: https://kuperstudio.github.io/SignalsService
+repo_name: KuperStudio/SignalsService
+repo_url: https://github.com/KuperStudio/SignalsService
+
+theme:
+  icon:
+    logo: material/access-point
+    repo: fontawesome/brands/git-alt
+  name: material
+  favicon: images/favicon.png
+  palette:
+  - scheme: default
+    primary: "Red"
+    accent: "Purple"
+    toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  - scheme: slate
+    primary: "Red"
+    accent: "Purple"
+    toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+nav:
+  - Home: index.md
+  - Documentation:
+      - Setting up: documentation/settingup.md
+      - Basic Usage: documentation/basicusage.md
+  - API: api.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
