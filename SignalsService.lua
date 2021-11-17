@@ -43,16 +43,14 @@ local Signals = {} do
 		end
 
 		function Signal:Wait()
-			if not self.Name then return end
-			local Result
-			local WaitSignal = self:Connect(function()
-				Result = true
+			local co = coroutine.running()
+			local signal
+			signal = self:Connect(function(...)
+				signal:Disconnect()
+				coroutine.resume(co, ...)
 			end)
 
-			repeat task.wait()  until Result
-			WaitSignal:Disconnect()
-
-			return
+			return coroutine.yield()
 		end
 
 		function Signal:Fire(...)
