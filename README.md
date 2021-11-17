@@ -16,4 +16,5 @@ SignalsService serves to bring you a more comprehensive way of connecting withou
 The service works based on meta-tables that store the connections in ascending order, functions are available that allow manipulating this meta-table of connections.
 
 **See library documentation [here!](https://kuperstudio.github.io/SignalsService/)**
+
 **See the discussion about the service in our [Devforum topic.](https://devforum.roblox.com/t/1548916)**
