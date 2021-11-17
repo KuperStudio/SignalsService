@@ -12,4 +12,4 @@ end)
 
 Adder:Wait() -- It will wait until the 'Adder' connection is fired.
 
-Parallel:Fire() -- It will fire the 'Parallel' connection.
+Parallel:Fire() -- It will fire the 'Parallel' connection. 
