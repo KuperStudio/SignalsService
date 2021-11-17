@@ -13,4 +13,4 @@ end)
 
 task.wait(5) -- It will wait 5 seconds after the game starts to fire a connection.
 
-Adder:Fire(5, 6) -- It will fire the 'Adder' connection.
+Adder:Fire(5, 6) -- It will fire the 'Adder' connection. 
