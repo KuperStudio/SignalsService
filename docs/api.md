@@ -6,13 +6,11 @@
 ```lua
 local Signal = SignalsService.new('Signal')
 ```
-It will return a signal/connection that will provide access to the signal's functions.
+The function '.new' serves to connect to signals based on the some entered as argument.
 
 !!! note
-    Even though the name of the function is `new`, the function is also used to obtain signals that already exist.
-
-!!! warning
-    To create or get a signal, you must pass the name you want to the signal or the service will fail.
+    The signal system will not work if you want to make a connection between server and client, because Roblox services do not allow this. 
+    It is recommended that you use RemoteEvents or RemoteFunctions if you want to make a connection between server and client.
 
 ## Signal
 
@@ -22,7 +20,7 @@ Signal:Connect(function(A, B)
     print(A + B)
 end)
 ```
-It will connect to the signal and if there is any trigger from the signal it will load the function passed as argument.
+Connects to the signal service waiting for a fire to load the callback function.
 
 ### Signal:ConnectParallel()
 ```lua
@@ -30,16 +28,45 @@ Signal:ConnectParallel(function(A, B)
     print(A + B)
 end)
 ```
-It works similarly to the 'Connect' function, but being a parallel connection, so you don't have to worry about loops, wait, or any other functions that interrupt code loading.
+It connects to the signal service waiting for a fire to load the callback function in a parallel manner, thus not interfering with your current code.
+!!! note
+    This service will typically be used to load map chunks, visual effects, call waiting and so on.
 
 ### Signal:Wait()
 ```lua
-Signal:Wait()
+local Result = Signal:Wait()
+print(Result)
 ```
-This function will commonly be used in multiple scripts or parallel functions in an individual script as this function pauses the code until there is a fired on the signal.
+It waits for a connection fire and returns the received values.
+!!! warning
+    It should be noted that this function interrupts all loading of your current code.
 
 ### Signal:Fire()
 ```lua
 Signal:Fire(5, 5)
 ```
-Fire the signal passing the necessary arguments of your connections.
+Fires the current signal system connections.
+
+### Signal:OnInvoke()
+```lua
+Signal:OnInvoke(function(A, B)
+    return A + B
+end)
+```
+Creates a callback function that will be activated after invoking the signal that will receive the function's callback.
+
+### Signal:Invoke()
+```lua
+local Result = Signal:Invoke(5, 5)
+print(Result)
+```
+Wait until the 'OnInvoke' function exists and then invoke it by entering the necessary arguments to the function and thus receiving the function's return.
+
+### Signal:Destroy()
+```lua
+Signal:Destroy()
+```
+It will destroy all the connections in the signal system.
+
+!!! warning
+    This function can generate an error in your code if you exclude running functions like 'Wait' or 'Invoke'.

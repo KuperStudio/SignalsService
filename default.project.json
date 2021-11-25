@@ -1,6 +1,33 @@
 {
   "name": "SignalsService",
   "tree": {
-    "$path": "SignalsService.lua"
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "SignalsService": {
+        "$path": "SignalsService.lua"
+      }
+    },
+
+    "ServerScriptService": {
+      "Adder": {
+        "$className": "Folder",
+        "Script1": {
+          "$path": "examples/Adder/Script1"
+        },
+        "Script2": {
+          "$path": "examples/Adder/Script2"
+        }
+      },
+      "GetVariable": {
+        "$className": "Folder",
+        "Script1": {
+          "$path": "examples/GetVariable/Script1"
+        },
+        "Script2": {
+          "$path": "examples/GetVariable/Script2"
+        }
+      }
+    }
   }
 }

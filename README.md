@@ -1,19 +1,18 @@
 # SignalsService - KuperStudio
-A signaling service that avoids the use of instances in your work, with the service you will be able to connect one or more scripts without having to use BindableEvents or RemoteEvents.
-The service is simple and easy to use, with just a few words we can all be together and connected.
+SignalsService is a simple signal system that will facilitate the connection of multiple scripts or for return systems like DataStores where you can receive '.Changed' as a connection type.
 
-### **What are the benefits the library gives?**
-* Optimization, as it will no longer be necessary to use instances for basic events.
 
-* A fast, clean and easy to use connection, thus bringing you a better and organized code.
+### **What are the benefits the service gives?**
+* A simple and easy-to-learn system.
 
-* Events can be used either individually (Connect in a single script) or collectively (Connect in multiple scripts).
+* It provides multiple connections between scripts that makes it easier and better to use them.
+
+* Derivation and typing that amplifies your working area.
+
+* Secure and optimized code, without the need for instantiations or anything that worsens the performance of your code.
 
 ### **Why should I use SignalsService?**
-SignalsService serves to bring you a more comprehensive way of connecting without requiring instance-based events that take out of your optimization, this means that using it will help you a lot with connections in your specific codes or functions.
-
-### **How does the service work?**
-The service works based on meta-tables that store the connections in ascending order, functions are available that allow manipulating this meta-table of connections.
+SignalsService brings a large and clean workspace that facilitates the connection of multiple scripts and optimizes your code, thus giving you more security.
 
 ---
 

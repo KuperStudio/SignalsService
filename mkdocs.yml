@@ -28,6 +28,9 @@ nav:
   - Documentation:
       - Setting up: documentation/settingup.md
       - Basic Usage: documentation/basicusage.md
+  - Examples: 
+    - Connections: examples/Connections.md
+    - Invocations: examples/Invocations.md
   - API: api.md
 
 markdown_extensions:

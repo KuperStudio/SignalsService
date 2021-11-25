@@ -1,0 +1,200 @@
+<roblox version="4">
+  <Item class="ReplicatedStorage" referent="0">
+    <Properties>
+      <string name="Name">ReplicatedStorage</string>
+    </Properties>
+    <Item class="ModuleScript" referent="1">
+      <Properties>
+        <string name="Name">SignalsService</string>
+        <string name="Source"><![CDATA[--// Types
+type table = {[any]: any}
+type Function = (...any) -> (...any)
+type Connection = {
+	Disconnect: Function,
+	disconnect: Function,
+}
+type Wait = () -> (...any)
+
+--// SignalsService
+local Signals = {} do
+	Signals.Connections = {}
+	
+
+	local Signal = {} do
+		Signal.__index = Signal
+		
+		function Signal:destroy()
+			Signals.Connections[self.Name] = nil
+		end
+
+		function Signal:Destroy()
+			self:destroy()
+		end
+
+		function Signal:connect(Callback: Function): Connection?
+			local Head = 'C'..Signals.Connections[self.Name].Listening
+			Signals.Connections[self.Name].Listening+=1
+			Signals.Connections[self.Name][Head] = Callback
+
+			local function disconnect()
+				Signals.Connections[self.Name][Head] = nil
+			end
+
+			return {disconnect = disconnect, Disconnect = disconnect}
+		end
+
+		function Signal:Connect(Callback: Function): Connection
+			return self:connect(Callback)
+		end
+
+		function Signal:connectParallel(Callback: Function): Connection
+			return self:connect(function(...) 
+				task.desynchronize()
+				return Callback(...)
+			end)
+		end
+
+		function Signal:ConnectParallel(Callback: Function): Connection
+			return self:connectParallel(Callback)
+		end
+
+		function Signal:wait(): Wait
+			local Result, WaitSignal
+			WaitSignal = self:connect(function(...)
+				Result = ...
+				WaitSignal:disconnect()
+			end)
+
+			repeat task.wait() until Result
+			return Result
+		end
+
+		function Signal:Wait(): Wait
+			return self:wait()
+		end
+
+		function Signal:fire(...)
+			for _, v in next, Signals.Connections[self.Name] do
+				if typeof(v) ~= 'function' then continue end
+				v(...)
+			end
+		end
+
+		function Signal:Fire(...)
+			self:fire(...)
+		end
+		
+		function Signal:onInvoke(Callback: Function)
+			Signals.Connections[self.Name].OnInvoke = Callback
+		end
+		
+		function Signal:OnInvoke(Callback: Function)
+			self:onInvoke(Callback)
+		end
+
+		function Signal:invoke(...)
+			repeat task.wait() until typeof(Signals.Connections[self.Name].OnInvoke) == 'function'
+			return Signals.Connections[self.Name].OnInvoke(...)
+		end
+
+		function Signal:Invoke(...): Function
+			return self:invoke(...)
+		end
+	end
+
+	function Signals.new(Name: string)
+		local self = setmetatable({}, Signal)
+		self.Name = Name
+		Signals.Connections[Name] = Signals.Connections[Name] or {
+			Listening = 0,
+			OnInvoke = nil,
+		}
+		return self
+	end
+end
+
+return Signals ]]></string>
+      </Properties>
+    </Item>
+  </Item>
+  <Item class="ServerScriptService" referent="2">
+    <Properties>
+      <string name="Name">ServerScriptService</string>
+    </Properties>
+    <Item class="Folder" referent="3">
+      <Properties>
+        <string name="Name">Adder</string>
+      </Properties>
+      <Item class="Script" referent="4">
+        <Properties>
+          <string name="Name">Script1</string>
+          <string name="Source">--// Services
+local SignalsService = require(game:GetService('ReplicatedStorage'):FindFirstChild('SignalsService'))
+
+--// Signals
+local Adder = SignalsService.new('Adder')
+
+--// Functions
+Adder:Connect(function(A, B)
+	print(A..' + '..B..' = '..A + B)
+end)</string>
+        </Properties>
+      </Item>
+      <Item class="Script" referent="5">
+        <Properties>
+          <string name="Name">Script2</string>
+          <string name="Source">--// Services
+local SignalsService = require(game:GetService('ReplicatedStorage'):FindFirstChild('SignalsService'))
+
+--// Signals
+local Adder = SignalsService.new('Adder')
+
+--// Functions
+task.wait(2)
+
+Adder:Fire(5, 5)</string>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Folder" referent="6">
+      <Properties>
+        <string name="Name">GetVariable</string>
+      </Properties>
+      <Item class="Script" referent="7">
+        <Properties>
+          <string name="Name">Script1</string>
+          <string name="Source">--// Services
+local SignalsService = require(game:GetService('ReplicatedStorage'):FindFirstChild('SignalsService'))
+
+--// Signals
+local GetVar = SignalsService.new('GetVar')
+
+--// Variables
+local Variable = 'Hello World!'
+
+--// Functions
+GetVar:OnInvoke(function()
+	return Variable
+end)</string>
+        </Properties>
+      </Item>
+      <Item class="Script" referent="8">
+        <Properties>
+          <string name="Name">Script2</string>
+          <string name="Source">--// Services
+local SignalsService = require(game:GetService('ReplicatedStorage'):FindFirstChild('SignalsService'))
+
+--// Signals
+local GetVar = SignalsService.new('GetVar')
+
+--// Variables
+local Variable
+
+--// Functions
+Variable = GetVar:Invoke()
+print(Variable)</string>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+</roblox>
