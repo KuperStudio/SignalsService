@@ -321,21 +321,21 @@
         
           <li class="md-nav__item">
   <a href="#1-getting-by-service-id" class="md-nav__link">
-    1 - Getting by service ID
+    1. Getting by service ID
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2-get-it-from-the-roblox-library" class="md-nav__link">
-    2 - Get it from the Roblox Library
+    2. Get it from the Roblox Library
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3-get-from-github" class="md-nav__link">
-    3 - Get from GitHub
+    3. Get from GitHub
   </a>
   
 </li>
@@ -488,21 +488,21 @@
         
           <li class="md-nav__item">
   <a href="#1-getting-by-service-id" class="md-nav__link">
-    1 - Getting by service ID
+    1. Getting by service ID
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2-get-it-from-the-roblox-library" class="md-nav__link">
-    2 - Get it from the Roblox Library
+    2. Get it from the Roblox Library
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3-get-from-github" class="md-nav__link">
-    3 - Get from GitHub
+    3. Get from GitHub
   </a>
   
 </li>
@@ -532,20 +532,48 @@
                 <h1 id="setting-up">Setting up</h1>
 <p>SignalsService is a module, this means that to use the service you will need to request the module. For the required module we will have different options to do this.</p>
 <h2 id="requiring-module">Requiring module</h2>
-<h3 id="1-getting-by-service-id">1 - Getting by service ID</h3>
+<h3 id="1-getting-by-service-id">1. Getting by service ID</h3>
 <ul>
 <li>Create a module in ReplicatedStorage</li>
+</ul>
+<p><img alt="Module In ReplicatedStorage" src="../../images/ModuleInReplicatedStorage.png" /></p>
+<ul>
+<li>Rename the module to <strong>SignalsService</strong></li>
+</ul>
+<p><img alt="Rename The Module To SignalsService" src="../../images/RenameTheModuleToSignalsService.png" /></p>
+<ul>
 <li>Insert a return with the require by service ID (7715453598) inside the module</li>
 </ul>
-<h3 id="2-get-it-from-the-roblox-library">2 - Get it from the Roblox Library</h3>
+<div class="highlight"><pre><span></span><code><span class="kr">return</span> <span class="nb">require</span><span class="p">(</span><span class="mi">7715453598</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="2-get-it-from-the-roblox-library">2. Get it from the Roblox Library</h3>
 <ul>
 <li>Get the <a href="https://www.roblox.com/library/7715453598">library model</a></li>
+</ul>
+<p><img alt="Get The Library Model" src="../../images/GetTheLibraryModel.png" /></p>
+<ul>
 <li>Put the model inside ReplicatedStorage</li>
 </ul>
-<h3 id="3-get-from-github">3 - Get from GitHub</h3>
+<p><img alt="Module In ReplicatedStorage" src="../../images/ModuleInReplicatedStorage.png" /></p>
 <ul>
-<li><a href="https://github.com/KuperStudio/SignalsService">SignalsService Repository</a></li>
+<li>Rename the module to <strong>SignalsService</strong></li>
 </ul>
+<p><img alt="Rename The Module To SignalsService" src="../../images/RenameTheModuleToSignalsService.png" /></p>
+<h3 id="3-get-from-github">3. Get from GitHub</h3>
+<p><a href="https://github.com/KuperStudio/SignalsService">SignalsService Repository</a></p>
+<ul>
+<li>Create a module in ReplicatedStorage</li>
+</ul>
+<p><img alt="Module In ReplicatedStorage" src="../../images/ModuleInReplicatedStorage.png" /></p>
+<ul>
+<li>Rename the module to <strong>SignalsService</strong></li>
+</ul>
+<p><img alt="Rename The Module To SignalsService" src="../../images/RenameTheModuleToSignalsService.png" /></p>
+<ul>
+<li>You must insert into the module the code mentioned below.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">return</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s1">&#39;HttpService&#39;</span><span class="p">):</span><span class="n">GetAsync</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/KuperStudio/SignalsService/main/SignalsService.lua&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)()</span>
+</code></pre></div>
                 
               
               

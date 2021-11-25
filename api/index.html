@@ -450,13 +450,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signaloninvoke" class="md-nav__link">
-    Signal.OnInvoke
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#signalwait" class="md-nav__link">
     Signal:Wait()
   </a>
@@ -466,6 +459,13 @@
           <li class="md-nav__item">
   <a href="#signalfire" class="md-nav__link">
     Signal:Fire()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signaloninvoke" class="md-nav__link">
+    Signal:OnInvoke()
   </a>
   
 </li>
@@ -567,13 +567,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signaloninvoke" class="md-nav__link">
-    Signal.OnInvoke
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#signalwait" class="md-nav__link">
     Signal:Wait()
   </a>
@@ -583,6 +576,13 @@
           <li class="md-nav__item">
   <a href="#signalfire" class="md-nav__link">
     Signal:Fire()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signaloninvoke" class="md-nav__link">
+    Signal:OnInvoke()
   </a>
   
 </li>
@@ -651,12 +651,6 @@ It connects to the signal service waiting for a fire to load the callback functi
 <p class="admonition-title">Note</p>
 <p>This service will typically be used to load map chunks, visual effects, call waiting and so on.</p>
 </div>
-<h3 id="signaloninvoke">Signal.OnInvoke</h3>
-<p><div class="highlight"><pre><span></span><code><span class="n">Signal</span><span class="p">.</span><span class="n">OnInvoke</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-    <span class="kr">return</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
-<span class="kr">end</span>
-</code></pre></div>
-Creates a callback function that will be activated after invoking the signal that will receive the function's callback.</p>
 <h3 id="signalwait">Signal:Wait()</h3>
 <p><div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">Result</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">:</span><span class="n">Wait</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Result</span><span class="p">)</span>
@@ -670,6 +664,12 @@ It waits for a connection fire and returns the received values.</p>
 <p><div class="highlight"><pre><span></span><code><span class="n">Signal</span><span class="p">:</span><span class="n">Fire</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 Fires the current signal system connections.</p>
+<h3 id="signaloninvoke">Signal:OnInvoke()</h3>
+<p><div class="highlight"><pre><span></span><code><span class="n">Signal</span><span class="p">:</span><span class="n">OnInvoke</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
+<span class="kr">end</span><span class="p">)</span>
+</code></pre></div>
+Creates a callback function that will be activated after invoking the signal that will receive the function's callback.</p>
 <h3 id="signalinvoke">Signal:Invoke()</h3>
 <p><div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">Result</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">:</span><span class="n">Invoke</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Result</span><span class="p">)</span>

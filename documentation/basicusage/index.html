@@ -525,26 +525,26 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span>
 <span class="kr">end</span><span class="p">)</span>
 </code></pre></div>
-<p>This seems to be starting to get interesting, but how could we be calling this function?</p>
-<p>Good question, my young grasshopper, here we will show you a highly complex and difficult way to make the event call recorded above. 
-Look closely enough so that you don't get lost!</p>
+<p>To fire the connection made above, we need to use the <strong>Fire</strong> function which will trigger all connections present in the current signal.</p>
 <div class="highlight"><pre><span></span><code><span class="n">Event</span><span class="p">:</span><span class="n">Fire</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
-<p>Well... That doesn't sound like the most complex system out there, but it works and is very effective.</p>
-<p>Hmmm, okay, but wouldn't that be equivalent to calling an ordinary function?</p>
-<p>Good question, yes, this is equivalent to an ordinary function call, but what you didn't expect is that it can be done through multiple scripts!!! YES, that's what you just saw, multiple scripts, that means we can have a communication between scripts without having the presence of remote modules or events.</p>
+<p>If we just want a firing check, we can use <strong>Wait</strong> which will interrupt the script until there is a firing of the current signal connections.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Event</span><span class="p">:</span><span class="n">Wait</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function will stop your current code until there is an event firing. Use it very carefully and usually in multiple script signals, so that there are no future problems with your code.</p>
+</div>
 <hr />
-<p>Well, this is something quite interesting, but we would like something more impactful, something with a return through signals, something you don't commonly see in Roblox's own signal services, something like an InvokeSignal. Yes, exactly what you just saw, InvokeSignal, a signal invocation that works equivalent to the instance of remote functions.</p>
-<p>Here we have a demonstration of how to use the system and how to invoke the function.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Event</span><span class="p">.</span><span class="n">OnInvoke</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span>
+<p>In addition to connections, there are also invocations that can only be set once and when invoked, the invoker will receive the return function of the current invocation.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Event</span><span class="p">:</span><span class="n">OnInvoke</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span>
     <span class="kr">return</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
-<span class="kr">end</span>
+<span class="kr">end</span><span class="p">)</span>
 
 <span class="kd">local</span> <span class="n">Result</span> <span class="o">=</span> <span class="n">Event</span><span class="p">:</span><span class="n">Invoke</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Result</span><span class="p">)</span> <span class="c1">-- 10</span>
 </code></pre></div>
-<hr />
-<p>Well, these are some basic usage examples, but you can see more of the documentation for the service in the API section.</p>
+<p>This example shows that <strong>Result</strong> is the result of the value <strong>A + B</strong> received as a return from the function entered in <strong>OnInvoke</strong>.</p>
                 
               
               

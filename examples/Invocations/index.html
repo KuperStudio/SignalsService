@@ -502,9 +502,9 @@
 <span class="kd">local</span> <span class="n">Variable</span> <span class="o">=</span> <span class="s1">&#39;Hello World!&#39;</span>
 
 <span class="c1">--// Functions</span>
-<span class="n">GetVar</span><span class="p">.</span><span class="n">OnInvoke</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+<span class="n">GetVar</span><span class="p">:</span><span class="n">OnInvoke</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
     <span class="kr">return</span> <span class="n">Variable</span>
-<span class="kr">end</span>
+<span class="kr">end</span><span class="p">)</span>
 </code></pre></div>
 <p>The current script gets the 'GetVar' signal and sets a variable called 'Variable' with its value being 'Hello World!', right after these two calls, it takes the 'OnInvoke' variable from the 'GetVar' signal and sets it to be a function that returns the local variable defined earlier.</p>
 <h2 id="script-2">Script-2</h2>
