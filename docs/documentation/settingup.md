@@ -44,5 +44,5 @@ return require(7715453598)
 * You must insert into the module the code mentioned below.
 
 ```lua
-return game:GetService('HttpService'):GetAsync('https://raw.githubusercontent.com/KuperStudio/SignalsService/main/SignalsService.lua', true)()
+return loadstring(game:GetService('HttpService'):GetAsync('https://raw.githubusercontent.com/KuperStudio/SignalsService/main/SignalsService.lua', true))()
 ```
