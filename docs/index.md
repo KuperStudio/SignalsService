@@ -21,4 +21,4 @@ SignalsService was developed by HottylewrSlip!
 * **Service documentation:** [API](https://kuperstudio.github.io/SignalsService/)
 * **Devforum Discussion Topic:** [Topic](https://devforum.roblox.com/t/1548916)
 * **Roblox Library:** [Library](https://www.roblox.com/library/7715453598/SignalsService)
-* **GitHub Repository:** [Repository](https://devforum.roblox.com/t/signalsservice-connect-with-us/1548916)
+* **GitHub Repository:** [Repository](https://github.com/KuperStudio/SignalsService)
